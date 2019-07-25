@@ -1,0 +1,117 @@
+; FTDIBUS.INF
+; Copyright (c) 2000-2004 FTDI Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=USB
+ClassGUID={36fc9e60-c465-11cf-8056-444553540000}
+Provider=%FTDI%
+CatalogFile=ftdibus.cat
+DriverVer=11/25/2004,1.00.2162
+
+[SourceDisksNames]
+1=%DriversDisk%,,,
+
+[SourceDisksFiles]
+ftcomms.vxd = 1
+ftserial.sys = 1
+ftsenum.vxd = 1
+ftsenum.sys = 1
+ftsermou.vxd = 1
+ftserui.dll = 1
+ftlang.dll = 1
+ftdibus.sys = 1
+ftdiunin.exe = 1
+ftdiunin.ini = 1
+
+
+[DestinationDirs]
+FtdiBus.Copy1 = 11
+FtdiBus.Copy2 = 17
+
+
+[Manufacturer]
+%Ftdi%=FtdiHw
+
+[FtdiHw]
+%USB\VID_0403&PID_8372.DeviceDesc%=FtdiBus,USB\VID_0403&PID_8372
+%USB\VID_0403&PID_6001.DeviceDesc%=FtdiBus,USB\VID_0403&PID_6001
+%USB\VID_0403&PID_6007.DeviceDesc%=FtdiBus,USB\VID_0403&PID_6007
+%USB\VID_0403&PID_6008.DeviceDesc%=FtdiBus,USB\VID_0403&PID_6008
+%USB\VID_0403&PID_6009.DeviceDesc%=FtdiBus,USB\VID_0403&PID_6009
+%USB\VID_0403&PID_0232.DeviceDesc%=FtdiBus,USB\VID_0403&PID_0232
+
+[ControlFlags]
+ExcludeFromSelect=USB\VID_0403&PID_8372
+ExcludeFromSelect=USB\VID_0403&PID_6001
+ExcludeFromSelect=USB\VID_0403&PID_6007
+ExcludeFromSelect=USB\VID_0403&PID_6008
+ExcludeFromSelect=USB\VID_0403&PID_6009
+ExcludeFromSelect=USB\VID_0403&PID_0232
+
+[FtdiBus]
+CopyFiles=FtdiBus.Copy1,FtdiBus.Copy2
+AddReg=FtdiBus.AddReg, FtdiBusUnInst.Reg
+RemoveDevice=FtdiBus.RemDev
+
+[FtdiBus.HW]
+AddReg=FtdiBus.AddReg.HW
+
+[FtdiBus.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,ftserial.sys
+
+[FtdiBus.AddReg.HW]
+HKR,,"UpperFilters",0x00010000,"ftsenum.sys"
+
+[FtdiBus.Copy1]
+ftcomms.vxd
+ftsenum.vxd
+ftsermou.vxd
+ftserial.sys
+ftsenum.sys
+ftserui.dll
+ftdiunin.exe
+ftdiunin.ini
+
+[FtdiBus.Copy2]
+ftdibus.inf
+ftdiport.inf
+ftsermou.inf
+
+[FtdiBus.RemDev]
+DelFiles=FtdiBus.Delfiles
+DELKEY=HKLM,%WINUN%\FTDICOMM
+
+[FtdiBusUnInst.Reg]
+HKLM,%WINUN%,"FTDICOMM"
+HKLM,%WINUN%\FTDICOMM , "UninstallString",,"%11%\ftdiunin.exe %11%\ftdiunin.ini"
+HKLM,%WINUN%\FTDICOMM , "DisplayName",,"FTDI USB-to-Serial Converter Drivers"
+
+[FtdiBus.DelFiles]
+FTCOMMS.VXD
+ftsenum.vxd
+ftsermou.vxd
+FTSERIAL.SYS
+FTPORTS.INF
+FTDICOM.INF
+ftdibus.inf
+ftdiport.inf
+ftsenum.sys
+ftserui.dll
+ftdiunin.exe
+ftdiunin.ini
+
+
+
+[Strings]
+Ftdi="FTDI"
+DriversDisk="FTDI USB Drivers Disk"
+USB\VID_0403&PID_8372.DeviceDesc="USB Serial Converter"
+USB\VID_0403&PID_6001.DeviceDesc="USB Serial Converter"
+USB\VID_0403&PID_6007.DeviceDesc="USB Serial Converter"
+USB\VID_0403&PID_6008.DeviceDesc="USB Serial Converter"
+USB\VID_0403&PID_6009.DeviceDesc="USB Serial Converter"
+USB\VID_0403&PID_0232.DeviceDesc="USB Serial Converter"
+WINUN="Software\Microsoft\Windows\CurrentVersion\Uninstall"
+FtdiBus.SvcDesc="USB Serial Converter Driver"

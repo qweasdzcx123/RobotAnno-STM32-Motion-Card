@@ -1,0 +1,24 @@
+; FTDIPORT.INF
+; Copyright (c) 2000-2008 FTDI Ltd.
+;
+
+[Version]
+DriverVer=1.1.0.2
+
+[Manufacturer]
+%FTDI%=FtdiHw
+
+[FtdiHw]
+%VID_0403&PID_6001.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6001
+%VID_0403&PID_6010.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6010
+%VID_0403&PID_6011.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6011
+
+[FtdiPort232.NT.HW.AddReg]
+HKR,,"Prefix",0x00010000,"COM"
+HKR,,"LatencyTimer",0x00010001,16
+HKR,,"InitialIndex",0x00010001,10
+HKR,,"ConfigData",1,01,04,3f,3f,10,27,88,13,C4,09,E2,04,71,02,38,41,9c,80,4E,C0,34,00,1A,00,0D,00,06,40,03,80,00,00,d0,80
+
+
+
+

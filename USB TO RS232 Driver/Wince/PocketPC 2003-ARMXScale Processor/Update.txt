@@ -1,0 +1,125 @@
+Serial WinCE 4.2-6.0. Driver Version 1.1.0.2
+© Future Technology Devices Intl. Ltd. 2008
+
+ftdi_ser.dll - the serial driver - type this in when prompted after device plug in.
+FTDIPORT.INF - inf file
+
+Copy both files (if required - see INF files for additional information)  to the \Windows directory then plug in device.
+Dialog will prompt for a driver name - use "ftdi_ser.dll" in full.
+
+
+Release 1.1.0.2:
+	Resolved interface selection issue for FT2232H and FT4232H.
+
+Release 1.1.0.1:
+	Included support for FT2232H and FT4232H.
+
+Release 1.1.0.0:
+	Changes for CE 6.0 compatibility.
+	Included file version info viewable from Windows Explorer.
+
+Release 1.0.2.13:
+	Fixed an issue with .NET serial port component compatibility.
+
+Release 1.0.2.12:
+	Fixed an issue with multiple ports above COM10 on Widows CE 5.0 and later.
+	Works with Windows Mobile 6 (Windows CE 5.2).
+
+Release 1.0.2.11:
+	Added support for 255 COM ports on CE 5.0 and later (COM0 - COM 254).
+
+Release 1.0.2.10:
+	Modified location of registry keys under ClientDrivers and LoadClients.
+
+Release 1.0.2.9:
+	Added registry setting to use CeSetThreadPriority API to set bulk thread priority (BulkPriorityEx) (CE 5.0 and above only).
+	
+Release 1.0.2.8:
+	Bug fix for notify on device removal
+
+Release 1.0.2.7:
+	Potential lockup on Write to device fix.
+
+Release 1.0.2.6:
+	Event Char 0x0D included in DCB setup.
+
+Release 1.0.2.5:
+	232R extended command support added (Latency Timer etc).
+
+Release 1.0.2.4:
+	Flow control on infinite timeout fix.
+
+Release 1.0.2.3:
+	Added EV_ERR support.
+
+Release 1.0.2.2:
+	Updated persistant unplug/replug.
+
+Release 1.0.2.1:
+	Internal release fixing persistant unplug/replug issues.
+	On persistant unplug WriteFile, ReadFile, and IOCTL will return ERROR_GEN_FAILURE
+	instead of ERROR_INVALID_HANDLE
+
+Release 1.0.2.0:
+	Persistant unplug/replug with ConfigData entry (see README.txt).
+
+Release 1.0.1.3:
+	Fix Access on unplug.
+
+Release 1.0.1.2:
+	Memory leak bug fix in unplug/replug.
+
+Release 1.0.1.1:
+	Internal release.
+
+Release 1.0.1.0:
+	Modem Emulation support added (requires EmulationMode registry setting as per Application Note 	AN232B-09 and 	INF Files Readme).
+	ActiveSync monitoring support added (requires registry setting - see INF Files Readme).
+
+Release 1.0.0.7:
+	Removed persistent registry FIX in 1.0.0.5 to allow for unique COM port settings.
+
+Release 1.0.0.6:
+	Added support for notify on device removal (using the FTVCP2G.dll)
+
+Release 1.0.0.5:
+	Bug fix with persistent registry not allowing unique driver settings on install
+	Minor internal changes.
+
+Release 1.0.0.4:
+	Calculates baud if no ConfigData setting in registry
+	Removed ConfigData as a default INF file setting
+
+Release 1.0.0.3:
+	Added support for Ratoc USB host
+
+Release 1.0.0.2:
+	Fixed RLSD event reporting
+
+Release 1.0.0.1:
+	Alias baud rate functionality
+	Unique device settings in registry (Requires devices with serial number)
+	Driver version number in registry
+	Fixed disconnect on open port bug
+
+Release 1.0.0.0: Initial release after Beta testing
+
+Tested with: 	AMD Personal Internet Communicator
+		RATOC Host CF card (REX-CFU1) - with Toshiba e800
+		Toshiba e800 with Presentation pack (PA3326U-1PRP)
+		Toshiba e400 with USB host cable
+		CEPC - running Windows CE 4.2
+
+Further information about FTDI's products as well as updates of drivers can be obtained from FTDI's web site at URL http://www.ftdichip.com
+
+We recommend that customers join the FTDI Newsletter. The FTDI NewsLetter is a e-mail based service which allows you to receive the latest FTDI related news, product releases, current driver version information. To join the FTDI NewsLetter, go to our web site http://www.ftdichip.com and click on the "FTDI NewsLetter" button on the LHS navigation panel.
+
+For technical support on our products and drivers, please e-mail support1@ftdichip.com
+
+For sales enquiries please e-mail sales1@ftdichip.com
+
+For general enquiries please e-mail admin1@ftdichip.com
+
+Disclaimer
+
+This software is supplied on an as-is basis and no warranty as to their suitability for any particular purpose is either made or implied. Future Technology Devices International Ltd. will not accept any claim for damages howsoever arising as a result of use or failure of this software. Your statutory rights are not affected. This software or any variant of it is not intended for use in any medical appliance, device or system in which the failure of the product might reasonably be expected to result in personal injury. This document provides preliminary information that may be subject to change without notice.

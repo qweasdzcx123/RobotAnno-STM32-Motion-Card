@@ -1,0 +1,110 @@
+; FTDIPORT.INF
+; Copyright (c) 2000-2004 FTDI Ltd.
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%FTDI%
+CatalogFile=ftdiport.cat
+DriverVer=11/25/2004,1.09.06
+
+[SourceDisksNames]
+1=%DriversDisk%,,,
+
+[SourceDisksFiles]
+ftdiport.inf=1
+;ftserui2.dll=1
+;FTLang.Dll = 1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+; Install class "Ports"
+;----------------------------------------------------------
+[ClassInstall]
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%FTDI%=FtdiHw
+
+[FtdiHw]
+%VID_0403&PID_8372.DeviceDesc%=FtdiPort,FTDIBUS\COMPORT&VID_0403&PID_8372
+%VID_0403&PID_6001.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6001
+%VID_0403&PID_6007.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6007
+%VID_0403&PID_6008.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6008
+%VID_0403&PID_6009.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_6009
+%VID_0403&PID_0232.DeviceDesc%=FtdiPort232,FTDIBUS\COMPORT&VID_0403&PID_0232
+
+;---------------------------------------------------------------;
+; For Win98 ...
+;
+
+[FtdiPort]
+AddReg=FtdiPort.AddReg,FtdiPort.W98.AddReg
+
+[FtdiPort.AddReg]
+HKR,,PortSubClass,1,01
+
+[FtdiPort.W98.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,ftsenum.vxd
+HKR,,PortDriver,,ftcomms.vxd
+HKR,,Contention,,*vcd
+HKR,,ConfigDialog,,ftserui.dll
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 11,33,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"ftserui.dll,EnumPropPages"
+
+[FtdiPort232]
+AddReg=FtdiPort.AddReg,FtdiPort.W98.AddReg
+
+[FtdiPort232.HW]
+AddReg=FtdiPort232.HW.AddReg
+
+[FtdiPort232.HW.AddReg]
+HKR,,ConfigData,1,01,00,3F,3F,10,27,88,13,C4,09,E2,04,71,02,38,41,9c,80,4E,C0,34,00,1A,00,0D,00,06,40,03,80,00,00,d0,80
+
+
+; -------------- Serenum Driver install section
+[SerEnum_AddService]
+DisplayName    = %SerEnum.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+[FtdiPort.NT.AddReg]
+HKR,,EnumPropPages32,,"ftserui2.dll,SerialPortPropPageProvider"
+
+[FtdiPort_AddService.AddReg]
+HKR,Parameters,"MaximumTransferSize",0x10001,4096
+;HKR,Parameters,"DebugLevel",0x10001,2
+
+
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+FTDI="FTDI"
+DriversDisk="FTDI USB Drivers Disk"
+PortsClassName = "Ports (COM & LPT)"
+VID_0403&PID_8372.DeviceDesc="USB Serial Port"
+VID_0403&PID_6001.DeviceDesc="USB Serial Port"
+VID_0403&PID_6007.DeviceDesc="USB Serial Port"
+VID_0403&PID_6008.DeviceDesc="USB Serial Port"
+VID_0403&PID_6009.DeviceDesc="USB Serial Port"
+VID_0403&PID_0232.DeviceDesc="USB Serial Port"
+FtdiPort.SvcDesc="USB Serial Port Driver"
+SerEnum.SvcDesc="Serenum Filter Driver"
+
+

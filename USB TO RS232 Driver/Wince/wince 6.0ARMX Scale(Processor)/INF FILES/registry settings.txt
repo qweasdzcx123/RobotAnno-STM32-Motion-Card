@@ -1,0 +1,21 @@
+The following registry keys are an example of what would be required to have your device install 
+without user interaction.
+To obtain a more accurate set of registry settings first install your device then extract the registry
+settings from your target using Embedded Visual C++ registry editor or similar. The settings that are relevant 
+are in the HKEY_LOCAL_MACHINE\Drivers\USB section.
+
+[HKEY_LOCAL_MACHINE\Drivers\USB\ClientDrivers\FTDI_DEVICE]
+"Prefix"="COM"
+"Dll"="ftdi_ser.dll"
+"ConfigData"=hex:\
+      01,00,3f,3f,10,27,88,13,c4,09,e2,04,71,02,38,41,9c,80,4e,c0,34,00,1a,00,0d,\
+      00,06,40,03,80,00,00,d0,80
+"InitialIndex"=dword:00000000
+"DeviceArrayIndex"=dword:00000000
+"LatencyTimer"=dword:00000010
+
+[HKEY_LOCAL_MACHINE\Drivers\USB\LoadClients\1027_24577\Default\Default\FTDI_DEVICE]
+"DLL"="ftdi_ser.dll"
+
+[HKEY_LOCAL_MACHINE\Drivers\USB\LoadClients\Default\Default\255\FTDI_DEVICE]
+"DLL"="ftdi_ser.dll"
