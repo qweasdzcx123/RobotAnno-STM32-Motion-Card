@@ -9,7 +9,7 @@ educational robots, light industrial robots and service robots with acost-effect
 >> Cost-Effective
 >>> To meet the same performance,will be the lowest price in the same level,RobotAnno robot arm price level can do a thousand dollars.High performance,called the best of small industrial robotic arm
 >> High precision
->>>Multi-axis interpolation control algorithm to ensure that robots with high-precision control
+>>> Multi-axis interpolation control algorithm to ensure that robots with high-precision control
 >> Industrial  materials
 >>> Using industrial materials as the robot body
 >> Multi-function
