@@ -8,12 +8,16 @@ educational robots, light industrial robots and service robots with acost-effect
 ## Product Features：
 >> Cost-Effective
 >>> To meet the same performance,will be the lowest price in the same level,RobotAnno robot arm price level can do a thousand dollars.High performance,called the best of small industrial robotic arm
+
 >> High precision
 >>> Multi-axis interpolation control algorithm to ensure that robots with high-precision control
+
 >> Industrial  materials
 >>> Using industrial materials as the robot body
+
 >> Multi-function
 >>> Support PC, and other intelligent interactive control methods
+
 >> Rich secondary development interface
 >>> Provide a serial port,and other rich communication for secondary development
 ## Control upper computer
