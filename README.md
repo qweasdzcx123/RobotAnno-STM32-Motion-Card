@@ -21,3 +21,4 @@ educational robots, light industrial robots and service robots with acost-effect
 >> Rich secondary development interface
 >>> Provide a serial port,and other rich communication for secondary development
 ## Control upper computer
+![](https://github.com/qweasdzcx123/RobotAnno-STM32-Motion-Card/blob/master/Picture/controlexe1.png)
